@@ -1,0 +1,36 @@
+# .NET Build outputs
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# NuGet
+packages/
+*.nupkg
+
+# Visual Studio
+.vs/
+.vscode/settings.json
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+[Oo]ut/
+
+# Private study plan (not for public repo)
+plan-estudio-dotnet.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+*.trx
+*.coverage

@@ -26,6 +26,10 @@ x86/
 # Private study plan (not for public repo)
 plan-estudio-dotnet.md
 
+# Output files
+*_output.csv
+*_output.json
+
 # OS files
 .DS_Store
 Thumbs.db

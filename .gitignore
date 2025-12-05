@@ -27,8 +27,8 @@ x86/
 plan-estudio-dotnet.md
 
 # Output files
-*_output.csv
-*_output.json
+# *_output.csv
+# *_output.json
 
 # OS files
 .DS_Store

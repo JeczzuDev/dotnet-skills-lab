@@ -36,13 +36,13 @@ jobs:
     - name: Build solution
       run: dotnet build --configuration Release --no-restore
       
-    - name: Run tests
-      run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --collect:"XPlat Code Coverage" --results-directory ./TestResults
+    - name: Run tests with coverage
+      run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --results-directory ./TestResults /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./TestResults/coverage.cobertura.xml
       
     - name: Generate coverage report
       uses: danielpalme/ReportGenerator-GitHub-Action@5.3.11
       with:
-        reports: './TestResults/**/coverage.cobertura.xml'
+        reports: './TestResults/coverage.cobertura.xml'
         targetdir: 'coveragereport'
         reporttypes: 'HtmlInline;Cobertura;MarkdownSummaryGithub'
         

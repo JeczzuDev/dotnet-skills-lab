@@ -1,5 +1,9 @@
 # .NET Skills Lab
 
+[![.NET CI/CD Pipeline](https://github.com/JeczzuDev/dotnet-skills-lab/actions/workflows/dotnet.yml/badge.svg)](https://github.com/JeczzuDev/dotnet-skills-lab/actions/workflows/dotnet.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.NET Version](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download)
+
 ## Overview
 
 A comprehensive, **self-paced learning program** designed to develop production-ready skills in:

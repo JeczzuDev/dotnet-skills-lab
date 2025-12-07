@@ -36,3 +36,9 @@ Console.WriteLine("  - GET /api/ocr - OCR processing results");
 Console.WriteLine("  - POST /api/ocr/upload - Upload images for OCR processing");
 
 await app.RunAsync();
+
+// Make Program class accessible for integration tests
+public partial class Program 
+{ 
+    protected Program() { }
+}

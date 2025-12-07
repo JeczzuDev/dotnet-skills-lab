@@ -1,5 +1,9 @@
 # DashboardLab - Interactive Data Dashboard
 
+[![Tests](https://img.shields.io/badge/tests-36%20passing-brightgreen.svg)]()
+[![Coverage](https://img.shields.io/badge/coverage-53.3%25-yellow.svg)]()
+[![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download)
+
 ## Overview
 
 Interactive web dashboard that integrates and visualizes data from multiple .NET projects (WebScraperLab and OCRLab) using a modern ASP.NET Core Web API backend and vanilla JavaScript frontend.
@@ -148,6 +152,43 @@ Dashboard will be available at `http://localhost:8080`
 - **Performance**: Debouncing, efficient re-renders, for...of loops
 - **Best Practices**: Number.parseInt(), replaceAll(), await RunAsync()
 - **Error Handling**: Try-catch blocks with user-friendly messages
+
+## Testing & CI/CD
+
+### Test Suite
+- **Framework**: xUnit with Moq for mocking
+- **Total Tests**: 36 (all passing ✅)
+- **Test Files**:
+  - `OcrServiceTests.cs` - Business logic testing
+  - `OcrControllerTests.cs` - HTTP endpoint validation  
+  - `ScraperControllerTests.cs` - File I/O and CSV parsing
+- **Coverage**: 53.3% line coverage, 46.4% branch coverage
+
+### Running Tests
+```bash
+# Run all tests
+cd Learning/DashboardLab/src/DashboardApi.Tests
+dotnet test
+
+# Run with coverage
+dotnet test --collect:"XPlat Code Coverage"
+
+# Generate HTML report
+reportgenerator -reports:"TestResults/**/coverage.cobertura.xml" -targetdir:"TestResults/CoverageReport" -reporttypes:Html
+```
+
+### Continuous Integration
+- **Platform**: GitHub Actions
+- **Workflow**: `.github/workflows/dotnet.yml`
+- **Triggers**: Push to main/develop, Pull Requests
+- **Steps**:
+  1. Build solution
+  2. Run all tests
+  3. Generate coverage report
+  4. Upload artifacts
+  5. Code quality checks
+
+See [TestingCIPipeline README](../TestingCIPipeline/README.md) for detailed testing documentation.
 
 ## Differences from Other Labs
 

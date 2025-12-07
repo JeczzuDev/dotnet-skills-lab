@@ -39,6 +39,13 @@ jobs:
     - name: Run tests with coverage
       run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --results-directory ./TestResults --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura
       
+    - name: List TestResults directory
+      run: |
+        echo "Listing TestResults directory structure:"
+        find ./TestResults -type f -name "*.xml" -o -name "*.json" -o -name "coverage.*"
+        echo "Full directory tree:"
+        ls -R ./TestResults
+      
     - name: Generate coverage report
       uses: danielpalme/ReportGenerator-GitHub-Action@5.3.11
       with:

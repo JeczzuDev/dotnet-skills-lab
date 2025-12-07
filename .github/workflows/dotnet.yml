@@ -17,18 +17,19 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-latest
     
-    strategy:
-      matrix:
-        dotnet-version: ['8.0.x']
-    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup .NET
+    - name: Setup .NET 8
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: ${{ matrix.dotnet-version }}
+        dotnet-version: '8.0.x'
+        
+    - name: Setup .NET 9
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
         
     - name: Restore dependencies
       run: dotnet restore
@@ -40,6 +41,7 @@ jobs:
       run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --results-directory ./TestResults --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura
       
     - name: List TestResults directory
+      if: always()
       run: |
         echo "Listing TestResults directory structure:"
         find ./TestResults -type f -name "*.xml" -o -name "*.json" -o -name "coverage.*"
